@@ -28,8 +28,8 @@
             text-align: center; padding: 25px;
             z-index: 2;
         }
+        /* Alterado de <a> para <div> para não ser clicável */
         .profile-link {
-            text-decoration: none;
             display: block;
             width: 190px;
             height: 190px;
@@ -59,7 +59,6 @@
             font-size: 20px;
             color: #fff;
             animation: pulse 1.5s infinite;
-            cursor: pointer;
         }
         h1 { font-size: 24px; margin-bottom: 12px; color: #ff4fd8; font-weight: 700; }
         p { font-size: 16px; color: #ccc; margin-bottom: 30px; line-height: 1.5; }
@@ -104,20 +103,20 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2099647530578166&ev=PageView&noscript=1"
     /></noscript>
-    </head>
+</head>
 <body>
     <div class="container">
-        <a href="https://t.me/GabySousaxobot" class="profile-link">
+        <div class="profile-link">
             <div class="profile-wrapper">
                 <img src="perfil.png" class="profile-img" alt="Exclusivo">
                 <div class="play-icon">▶</div>
             </div>
-        </a>
+        </div>
 
         <h1>Oi, você vem? ❤️</h1>
         <p>Acabei de postar conteúdos novos que você nunca viu. Confirma que tem +18 para entrar no grupo?</p>
         
-        <a href="https://t.me/GabySousaxobot" class="btn">QUERO TE VER AGORA</a>
+        <a href="https://t.me/GabySousaxobot" onclick="fbq('track', 'Lead');" class="btn">QUERO TE VER AGORA</a>
 
         <div class="footer">
             <div class="footer-links">
