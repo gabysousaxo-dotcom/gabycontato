@@ -28,13 +28,13 @@
             text-align: center; padding: 25px;
             z-index: 2;
         }
-        /* Alterado de <a> para <div> para não ser clicável */
         .profile-link {
             display: block;
             width: 190px;
             height: 190px;
             margin: 0 auto 25px;
             position: relative;
+            cursor: default; /* Remove o ponteiro de clique */
         }
         .profile-wrapper {
             position: relative;
@@ -77,10 +77,7 @@
         }
         .btn:hover { transform: scale(1.05); }
         .footer { font-size: 11px; color: #444; margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; }
-        .footer-links { margin-bottom: 10px; }
-        .footer-links a { color: #555; text-decoration: none; margin: 0 10px; font-weight: 600; }
-        .footer-links a:hover { color: #ff4fd8; }
-
+        
         @keyframes pulse {
             0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(255, 26, 191, 0.7); }
             70% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 15px rgba(255, 26, 191, 0); }
@@ -108,7 +105,7 @@
     <div class="container">
         <div class="profile-link">
             <div class="profile-wrapper">
-                <img src="perfil.png" class="profile-img" alt="Exclusivo">
+                <img src="perfil.png" class="profile-img">
                 <div class="play-icon">▶</div>
             </div>
         </div>
@@ -119,9 +116,6 @@
         <a href="https://t.me/GabySousaxobot" onclick="fbq('track', 'Lead');" class="btn">QUERO TE VER AGORA</a>
 
         <div class="footer">
-            <div class="footer-links">
-                <a href="#">Privacidade</a> | <a href="#">Termos de Uso</a>
-            </div>
             <p>🔒 Ambiente 100% Seguro e Privado.</p>
             <p>Este site não faz parte do Facebook ou da Meta Platforms, Inc.</p>
         </div>
