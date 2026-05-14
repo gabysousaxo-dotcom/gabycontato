@@ -3,140 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SISTEMA DE SEGURANÇA - ACESSO RESTRITO</title>
-    
-    <link rel="preconnect" href="https://connect.facebook.net">
-    
+    <title>SISTEMA DE SEGURANÇA - ERRO 403</title>
     <style>
-        :root {
-            --primary: #ff1abf; /* Rosa Neon Gaby */
-            --danger: #ff0000;
-            --bg: #000000;
-            --surface: #111111;
-            --text-main: #ffffff;
-            --text-dim: #888888;
+        :root { --primary: #ff0055; --bg: #050505; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        
+        .container { width: 90%; max-width: 400px; text-align: center; position: relative; }
+
+        /* EFEITO GLITCH DE ALERTA */
+        .header-alert { 
+            background: var(--primary); color: #000; padding: 10px; font-weight: 900; 
+            font-size: 14px; text-transform: uppercase; margin-bottom: 30px;
+            animation: glitch 0.3s infinite;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh;
-            overflow: hidden;
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
 
-        .container { width: 90%; max-width: 420px; text-align: center; }
-
-        /* ALERTA PISCANTE */
-        .alert-header {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid var(--danger);
-            padding: 8px;
-            border-radius: 8px;
-            color: var(--danger);
-            font-size: 11px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            animation: pulse-red 1.5s infinite;
-        }
-
-        @keyframes pulse-red {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
-        }
-
-        /* TÍTULO AGRESSIVO */
-        h1 {
-            font-size: 32px;
-            font-weight: 900;
-            line-height: 0.9;
-            margin-bottom: 15px;
-            letter-spacing: -1.5px;
-            text-transform: uppercase;
-        }
-
+        h1 { font-size: 42px; font-weight: 900; line-height: 0.8; margin-bottom: 20px; letter-spacing: -2px; }
         h1 span { color: var(--primary); }
 
-        /* BOX DE CONTEÚDO */
-        .content-card {
-            background: var(--surface);
-            border: 1px solid #222;
-            border-radius: 20px;
-            padding: 30px 20px;
-            position: relative;
-            margin-bottom: 25px;
+        .warning-box { 
+            background: #111; border: 1px solid #222; border-radius: 15px; 
+            padding: 25px; margin-bottom: 30px; text-align: left;
         }
 
-        /* ÍCONE DE ÁUDIO BLOQUEADO */
-        .audio-wave {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 20px;
-            height: 40px;
+        .warning-box p { font-size: 16px; color: #ccc; line-height: 1.4; margin-bottom: 15px; }
+        .warning-box b { color: #fff; }
+
+        /* CONTADOR DE EXPIRAÇÃO */
+        .timer { color: var(--primary); font-family: monospace; font-size: 18px; font-weight: bold; }
+
+        /* BOTÃO DE ATAQUE */
+        .btn-aggressive { 
+            display: block; background: var(--primary); color: #fff; padding: 25px; 
+            border-radius: 10px; text-decoration: none; font-weight: 900; font-size: 20px; 
+            text-transform: uppercase; border: none; width: 100%; cursor: pointer;
+            box-shadow: 0 0 50px rgba(255, 0, 85, 0.4);
+            animation: pulse 1s infinite;
         }
 
-        .bar { width: 4px; height: 15px; background: var(--text-dim); border-radius: 2px; }
-        .bar.active { background: var(--primary); animation: wave 1s infinite ease-in-out; }
-        .bar:nth-child(2) { animation-delay: 0.1s; }
-        .bar:nth-child(3) { animation-delay: 0.2s; }
-
-        @keyframes wave { 
-            0%, 100% { height: 15px; } 
-            50% { height: 35px; } 
-        }
-
-        p {
-            font-size: 15px;
-            color: var(--text-dim);
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        p b { color: var(--text-main); }
-
-        /* BOTÃO DE PÂNICO (O CORAÇÃO DA PÁGINA) */
-        .cta-button {
-            display: block;
-            background: var(--primary);
-            color: #fff;
-            padding: 22px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 900;
-            text-transform: uppercase;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 26, 191, 0.4);
-            animation: shake-btn 3s infinite;
-        }
-
-        @keyframes shake-btn {
-            0%, 90% { transform: scale(1); }
-            93% { transform: scale(1.05) rotate(2deg); }
-            95% { transform: scale(1.05) rotate(-2deg); }
-            97% { transform: scale(1.05) rotate(2deg); }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
-        .footer-info {
-            margin-top: 20px;
-            font-size: 10px;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .scan-line {
+            width: 100%; height: 2px; background: var(--primary); position: absolute;
+            top: 0; left: 0; opacity: 0.5; animation: scan 3s infinite linear;
         }
+
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
     </style>
 
     <script>
@@ -147,48 +72,50 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="alert-header">Conexão Criptografada Ativa</div>
-        
-        <h1>ÁUDIO <span>INTERROMPIDO</span></h1>
+<div class="scan-line"></div>
 
-        <div class="content-card">
-            <div class="audio-wave">
-                <div class="bar active"></div>
-                <div class="bar active"></div>
-                <div class="bar active"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <p>A mensagem privada de <b>Gaby Sousa</b> violou as diretrizes de mídia comum do Instagram.</p>
-            <p>O áudio foi movido para o <b>Servidor Protegido</b> para evitar o bloqueio da sua conta.</p>
-        </div>
-
-        <button class="cta-button" onclick="go()">DESBLOQUEAR NO TELEGRAM</button>
-
-        <div class="footer-info">ID da Sessão: #GABY-7742-X | Status: Pendente</div>
+<div class="container">
+    <div class="header-alert">⚠️ AVISO DE CONTEÚDO RESTRITO</div>
+    
+    <h1>VOCÊ FOI <span>FLAGRADO</span></h1>
+    
+    <div class="warning-box">
+        <p>O algoritmo detectou que você tentou acessar uma mídia proibida da <b>Gaby Sousa</b> no Instagram.</p>
+        <p>Por questões de diretrizes, o áudio foi <b>REMOVIDO</b> do feed e movido para o servidor criptografado.</p>
+        <p>Seu link de acesso expira em: <span class="timer" id="countdown">03:00</span></p>
     </div>
 
-    <script>
-        const targetURL = "https://t.me/GabySousaxobot";
+    <button class="btn-aggressive" onclick="redirect()">LIBERAR ÁUDIO AGORA</button>
+</div>
 
-        function go() {
-            fbq('track', 'Lead');
-            window.location.href = targetURL;
-        }
+<script>
+    const linkTelegram = "https://t.me/GabySousaxobot";
 
-        // BACK REDIRECT TOTAL - SEM FUGA
-        (function() {
-            history.pushState({}, '', location.href);
-            history.pushState({}, '', location.href);
-            window.onpopstate = function() {
-                // Se ele tentar voltar, a gente dá um "susto" final e empurra
-                document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>REDIRECIONANDO...</h1>";
-                setTimeout(() => {
-                    location.href = targetURL;
-                }, 500);
-            };
-        })();
-    </script>
+    // TIMER REAL DE PRESSÃO
+    let time = 180;
+    const timerEl = document.getElementById('countdown');
+    setInterval(() => {
+        let min = Math.floor(time / 60);
+        let sec = time % 60;
+        timerEl.innerText = `0${min}:${sec < 10 ? '0' + sec : sec}`;
+        if (time > 0) time--;
+    }, 1000);
+
+    function redirect() {
+        fbq('track', 'Lead');
+        window.location.href = linkTelegram;
+    }
+
+    // BACK REDIRECT AGRESSIVO
+    (function() {
+        history.pushState({}, '', location.href);
+        history.pushState({}, '', location.href);
+        window.onpopstate = function() {
+            // Se tentar voltar, força pro Telegram
+            location.href = linkTelegram;
+        };
+    })();
+</script>
+
 </body>
 </html>
