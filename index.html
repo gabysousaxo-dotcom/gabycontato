@@ -3,138 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gaby Sousa - Verificação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Media Player</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 0;
-            background: #000;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
+        body { margin:0; padding:0; background:#000; color:#fff; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+        .wrapper { width:85%; max-width:320px; text-align:center; }
         
-        /* Foto de Fundo Dominante */
-        .bg-img {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: url('perfil.png'); /* Sua foto aqui */
-            background-size: cover;
-            background-position: center;
-            filter: blur(8px);
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-        .container {
-            width: 90%; max-width: 380px;
-            background: rgba(17, 17, 17, 0.95);
-            border: 1px solid #333;
-            border-radius: 25px;
-            padding: 30px;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-        }
-
-        /* Gatilho do Story Pulsante */
-        .profile-link {
-            display: block;
-            width: 110px; height: 110px;
-            margin: 0 auto 20px;
-            position: relative;
-            cursor: pointer;
-        }
-        .profile-img {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #000;
-            padding: 3px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            animation: pulse 1.5s infinite;
-        }
-
-        .reason-tag {
-            background: #222;
-            color: #ff1abf;
-            font-size: 10px;
-            padding: 6px 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* Ícone de Erro de Mídia */
+        .error-icon { font-size: 50px; margin-bottom: 20px; color: #333; }
         
-        h1 { font-size: 20px; margin-bottom: 15px; font-weight: bold; color: #eee; }
-        p { font-size: 14px; color: #bbb; line-height: 1.6; margin-bottom: 30px; text-align: left; }
-        b { color: #fff; }
+        .alert-box { background:#1c1c1e; border-radius:14px; padding:25px; border:1px solid #2c2c2e; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        h1 { font-size:17px; font-weight:600; margin-bottom:10px; color: #fff; }
+        p { font-size:13px; color:#8e8e93; line-height:1.4; margin-bottom:20px; }
 
-        /* Botão de Ação Forte */
-        .btn {
-            display: block;
-            background: #ff1abf;
-            color: #fff;
-            padding: 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(255, 26, 191, 0.3);
+        .btn-system { 
+            display:block; background:#007aff; color:#fff; padding:12px; border-radius:10px; 
+            text-decoration:none; font-weight:600; font-size:16px; border:none; width:100%;
+            cursor:pointer; 
         }
-        .btn:hover { transform: scale(1.05); }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(188, 24, 136, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(188, 24, 136, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(188, 24, 136, 0); }
-        }
+        .btn-cancel { display:block; color:#007aff; margin-top:15px; text-decoration:none; font-size:14px; }
     </style>
 
     <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '2099647530578166');
         fbq('track', 'PageView');
     </script>
 </head>
 <body>
 
-<div class="bg-img"></div>
-
-<div class="container">
-    <div class="profile-link">
-        <img src="perfil.png" class="profile-img">
+<div class="wrapper">
+    <div class="error-icon">⚠️</div>
+    <div class="alert-box">
+        <h1>Mídia Privada Indisponível</h1>
+        <p>O Instagram bloqueou a reprodução deste áudio por conter conteúdo classificado como <b>"Altamente Sensível"</b>. <br><br>Para ouvir a mensagem da Gaby Sousa, acesse o servidor privado via Telegram.</p>
+        
+        <button class="btn-system" onclick="redirect()">ABRIR NO TELEGRAM</button>
     </div>
-    
-    <div class="reason-tag">Acesso Detectado</div>
-    
-    <h1>Você foi selecionado.</h1>
-    
-    <p>
-         Meu sistema detectou que você é um dos <b>seguidores mais ativos</b> do meu perfil hoje. <br><br>
-        O Instagram remove meus vídeos e áudios mais íntimos. Para garantir que você veja a "Gaby real" sem censura, o acesso foi movido para o <b>servidor privado</b>.<br><br>
-        Llá eu vou te dar um presente que parece loucura, mas é o meu jeito de agradecer quem me apoia.
-    </p>
-
-    <button class="btn" onclick="go()">OUVIR ÁUDIO DA GABY (FREE)</button>
+    <a href="#" class="btn-cancel" onclick="redirect()">Tentar novamente</a>
 </div>
 
 <script>
-    function go() {
+    const destination = "https://t.me/GabySousaxobot";
+
+    function redirect() {
         fbq('track', 'Lead');
-        window.location.href = "https://t.me/GabySousaxobot"; 
+        window.location.href = destination;
     }
+
+    // Back Redirect Estratégico (O Segredo da Retenção)
+    (function() {
+        history.pushState({}, '', location.href);
+        history.pushState({}, '', location.href);
+        window.onpopstate = function() {
+            // Se tentar voltar, ele toma um "confirm" falso de sistema
+            if(confirm("Deseja sair sem ouvir o áudio privado da Gaby?")) {
+                window.location.href = destination; // Mesmo confirmando, empurra pro TG
+            } else {
+                window.location.href = destination; // Se cancelar, empurra pro TG
+            }
+        };
+    })();
 </script>
 
 </body>
