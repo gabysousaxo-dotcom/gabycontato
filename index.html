@@ -3,116 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SISTEMA DE SEGURANÇA - ERRO 403</title>
+    <title>RESERVADO - GABY SOUSA</title>
     <style>
-        :root { --primary: #ff0055; --bg: #050505; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        :root { --accent: #ff2d55; --bg: #000000; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, system-ui, sans-serif; }
+        body { background: var(--bg); color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         
-        .container { width: 90%; max-width: 400px; text-align: center; position: relative; }
+        .container { width: 85%; max-width: 380px; text-align: center; }
 
-        /* EFEITO GLITCH DE ALERTA */
-        .header-alert { 
-            background: var(--primary); color: #000; padding: 10px; font-weight: 900; 
-            font-size: 14px; text-transform: uppercase; margin-bottom: 30px;
-            animation: glitch 0.3s infinite;
+        /* HEADER DE PRIVACIDADE */
+        .incognito-header {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        /* CARD DO CONTEÚDO */
+        .leak-card {
+            background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 24px;
+            padding: 30px 20px; box-shadow: 0 0 40px rgba(255, 45, 85, 0.1); margin-bottom: 20px;
         }
 
-        h1 { font-size: 42px; font-weight: 900; line-height: 0.8; margin-bottom: 20px; letter-spacing: -2px; }
-        h1 span { color: var(--primary); }
-
-        .warning-box { 
-            background: #111; border: 1px solid #222; border-radius: 15px; 
-            padding: 25px; margin-bottom: 30px; text-align: left;
+        .profile-img {
+            width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent);
+            margin-bottom: 15px; padding: 3px;
         }
 
-        .warning-box p { font-size: 16px; color: #ccc; line-height: 1.4; margin-bottom: 15px; }
-        .warning-box b { color: #fff; }
+        h1 { font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #fff; }
+        
+        .status-badge {
+            display: inline-block; background: rgba(255, 45, 85, 0.1); color: var(--accent);
+            padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; margin-bottom: 20px;
+        }
 
-        /* CONTADOR DE EXPIRAÇÃO */
-        .timer { color: var(--primary); font-family: monospace; font-size: 18px; font-weight: bold; }
+        .narrative-text { font-size: 15px; color: #aaa; line-height: 1.5; margin-bottom: 20px; }
+        .narrative-text b { color: #fff; }
 
-        /* BOTÃO DE ATAQUE */
-        .btn-aggressive { 
-            display: block; background: var(--primary); color: #fff; padding: 25px; 
-            border-radius: 10px; text-decoration: none; font-weight: 900; font-size: 20px; 
+        /* BOTÃO DE DESBLOQUEIO */
+        .btn-unlock {
+            display: block; background: var(--accent); color: #fff; padding: 20px;
+            border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 16px;
             text-transform: uppercase; border: none; width: 100%; cursor: pointer;
-            box-shadow: 0 0 50px rgba(255, 0, 85, 0.4);
-            animation: pulse 1s infinite;
+            box-shadow: 0 10px 25px rgba(255, 45, 85, 0.3);
+            animation: pulse 1.5s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        .scan-line {
-            width: 100%; height: 2px; background: var(--primary); position: absolute;
-            top: 0; left: 0; opacity: 0.5; animation: scan 3s infinite linear;
-        }
-
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .footer-note { font-size: 10px; color: #333; margin-top: 15px; font-style: italic; }
     </style>
-
-    <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2099647530578166');
-        fbq('track', 'PageView');
-    </script>
 </head>
 <body>
 
-<div class="scan-line"></div>
-
 <div class="container">
-    <div class="header-alert">⚠️ AVISO DE CONTEÚDO RESTRITO</div>
-    
-    <h1>VOCÊ FOI <span>FLAGRADO</span></h1>
-    
-    <div class="warning-box">
-        <p>O algoritmo detectou que você tentou acessar uma mídia proibida da <b>Gaby Sousa</b> no Instagram.</p>
-        <p>Por questões de diretrizes, o áudio foi <b>REMOVIDO</b> do feed e movido para o servidor criptografado.</p>
-        <p>Seu link de acesso expira em: <span class="timer" id="countdown">03:00</span></p>
+    <div class="incognito-header">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+        Conexão P2P Criptografada
     </div>
 
-    <button class="btn-aggressive" onclick="redirect()">LIBERAR ÁUDIO AGORA</button>
+    <div class="leak-card">
+        <img src="https://gabycontato.vercel.app/profile.jpg" alt="Gaby" class="profile-img"> <div class="status-badge">GRAVADO AGORA</div>
+        <h1>Mídia Temporária</h1>
+        <div class="narrative-text">
+            <p>"Eu tive que vir correndo pro <b>banheiro</b>... Meus pais estão aqui na sala e eu acabei fazendo algo que <b>não devia</b>."</p>
+            <br>
+            <p>O vídeo está carregado no <b>Telegram Privado</b> para evitar denúncias.</p>
+        </div>
+        <button class="btn-unlock" onclick="go()">ASSISTIR LOGO (FREE)</button>
+    </div>
+
+    <div class="footer-note">Este link será desativado automaticamente em 120 segundos.</div>
 </div>
 
 <script>
-    const linkTelegram = "https://t.me/GabySousaxobot";
+    const telegramURL = "https://t.me/SEU_BOT_AQUI"; // COLOQUE SEU LINK AQUI
 
-    // TIMER REAL DE PRESSÃO
-    let time = 180;
-    const timerEl = document.getElementById('countdown');
-    setInterval(() => {
-        let min = Math.floor(time / 60);
-        let sec = time % 60;
-        timerEl.innerText = `0${min}:${sec < 10 ? '0' + sec : sec}`;
-        if (time > 0) time--;
-    }, 1000);
-
-    function redirect() {
-        fbq('track', 'Lead');
-        window.location.href = linkTelegram;
+    function go() {
+        // Dispara o Pixel antes de ir
+        if(typeof fbq === 'function') fbq('track', 'Lead');
+        window.location.href = telegramURL;
     }
 
-    // BACK REDIRECT AGRESSIVO
+    // BACK-REDIRECT: Se ele tentar voltar, a gente joga ele pro Telegram de qualquer jeito
     (function() {
         history.pushState({}, '', location.href);
         history.pushState({}, '', location.href);
         window.onpopstate = function() {
-            // Se tentar voltar, força pro Telegram
-            location.href = linkTelegram;
+            location.href = telegramURL;
         };
     })();
 </script>
