@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Media Player</title>
+    <title>SISTEMA DE SEGURANÇA</title>
     <style>
-        body { margin:0; padding:0; background:#000; color:#fff; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-        .wrapper { width:85%; max-width:320px; text-align:center; }
+        /* RESET TOTAL PARA VELOCIDADE */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#000; color:#fff; font-family:'Arial Black', Gadget, sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; overflow:hidden; }
         
-        /* Ícone de Erro de Mídia */
-        .error-icon { font-size: 50px; margin-bottom: 20px; color: #333; }
-        
-        .alert-box { background:#1c1c1e; border-radius:14px; padding:25px; border:1px solid #2c2c2e; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        h1 { font-size:17px; font-weight:600; margin-bottom:10px; color: #fff; }
-        p { font-size:13px; color:#8e8e93; line-height:1.4; margin-bottom:20px; }
+        .container { width:95%; max-width:400px; text-align:center; padding:20px; }
 
-        .btn-system { 
-            display:block; background:#007aff; color:#fff; padding:12px; border-radius:10px; 
-            text-decoration:none; font-weight:600; font-size:16px; border:none; width:100%;
-            cursor:pointer; 
+        /* HEADER AGRESSIVO */
+        .status-badge { background: #ff0000; color: #fff; padding: 5px 15px; border-radius: 5px; font-size: 12px; display: inline-block; margin-bottom: 15px; animation: blink 0.5s infinite; }
+        @keyframes blink { 0% {opacity:1;} 50% {opacity:0;} 100% {opacity:1;} }
+
+        h1 { font-size: 38px; line-height: 1; margin-bottom: 20px; text-transform: uppercase; color: #fff; letter-spacing: -2px; }
+        h1 span { color: #ff1abf; }
+
+        /* BOX DE MENSAGEM */
+        .message-box { background: #111; border: 2px solid #222; border-radius: 20px; padding: 30px; margin-bottom: 25px; }
+        p { font-family: sans-serif; font-size: 16px; color: #aaa; line-height: 1.5; text-align: left; }
+        p b { color: #fff; }
+
+        /* BOTÃO DE ATAQUE (O MAIOR POSSÍVEL) */
+        .btn-panic { 
+            display: block; background: #ff1abf; color: #fff; padding: 25px; border-radius: 15px; 
+            text-decoration: none; font-weight: 900; font-size: 22px; text-transform: uppercase;
+            border: none; width: 100%; cursor: pointer; transition: 0.2s;
+            box-shadow: 0 0 40px rgba(255, 26, 191, 0.4);
+            animation: shake 2s infinite;
         }
-        .btn-cancel { display:block; color:#007aff; margin-top:15px; text-decoration:none; font-size:14px; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .footer-note { font-size: 10px; color: #333; margin-top: 20px; text-transform: uppercase; }
     </style>
 
     <script>
@@ -31,36 +49,39 @@
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="error-icon">⚠️</div>
-    <div class="alert-box">
-        <h1>Mídia Privada Indisponível</h1>
-        <p>O Instagram bloqueou a reprodução deste áudio por conter conteúdo classificado como <b>"Altamente Sensível"</b>. <br><br>Para ouvir a mensagem da Gaby Sousa, acesse o servidor privado via Telegram.</p>
-        
-        <button class="btn-system" onclick="redirect()">ABRIR NO TELEGRAM</button>
+<div class="container">
+    <div class="status-badge">⚠️ CONTEÚDO ALTAMENTE SENSÍVEL</div>
+    
+    <h1>ACESSO <span>RESTRITO</span></h1>
+    
+    <div class="message-box">
+        <p>
+            <b>Gaby Sousa</b> tentou te enviar um áudio privado, mas o Instagram interrompeu a conexão. <br><br>
+            Para sua segurança, a mídia foi movida para o <b>Servidor Seguro do Telegram</b>. <br><br>
+            Aperte o botão abaixo para desbloquear o áudio agora ou sua sessão irá expirar.
+        </p>
     </div>
-    <a href="#" class="btn-cancel" onclick="redirect()">Tentar novamente</a>
+
+    <button class="btn-panic" onclick="forceRedirect()">OUVIR ÁUDIO AGORA</button>
+    
+    <div class="footer-note">Criptografia de Ponta a Ponta Ativada</div>
 </div>
 
 <script>
-    const destination = "https://t.me/GabySousaxobot";
+    const linkFinal = "https://t.me/GabySousaxobot";
 
-    function redirect() {
+    function forceRedirect() {
         fbq('track', 'Lead');
-        window.location.href = destination;
+        window.location.href = linkFinal;
     }
 
-    // Back Redirect Estratégico (O Segredo da Retenção)
+    // BACK REDIRECT AGRESSIVO (SEM ESCAPE)
     (function() {
         history.pushState({}, '', location.href);
         history.pushState({}, '', location.href);
         window.onpopstate = function() {
-            // Se tentar voltar, ele toma um "confirm" falso de sistema
-            if(confirm("Deseja sair sem ouvir o áudio privado da Gaby?")) {
-                window.location.href = destination; // Mesmo confirmando, empurra pro TG
-            } else {
-                window.location.href = destination; // Se cancelar, empurra pro TG
-            }
+            // Se ele tentar voltar, a gente joga ele no Telegram de qualquer jeito
+            location.href = linkFinal;
         };
     })();
 </script>
